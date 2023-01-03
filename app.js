@@ -3,13 +3,16 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 require('dotenv/config')
+mongoose.set('strictQuery', false);
 
 // (6) body-parser
 app.use(bodyParser.urlencoded({
     extended: true
 }))
 app.use(bodyParser.json())
+app.use(cors())
 
 // (7) import routes mahasiswa, dll
 const senjataRoutes = require('./routes/senjata')
